@@ -1,5 +1,5 @@
 {
-  "name": "subscribe",
+  "name": "send",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "response": "file:../common/response"
+    "mp-cloud-openapi": "file:../common/mp-cloud-openapi",
+    "utils": "file:../common/utils"
   }
 }
