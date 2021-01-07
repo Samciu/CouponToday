@@ -9,6 +9,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-	"uni-id": "file:../common/uni-id"
+    "uni-id": "file:../common/uni-id"
   }
 }

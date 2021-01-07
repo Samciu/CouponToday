@@ -2,11 +2,10 @@
   <view class="container">
     <view class="subscribe" @click="subscribe()"> 订阅banner </view>
 
-    <!-- <v-tabs v-model="current" :tabs="tabs" @change="changeTab" class="tab"></v-tabs> -->
     <view class="coupon" ref="coupon">
       <view
         class="item"
-        v-for="(v, i) in coupons"
+        v-for="(v, i) in couponList"
         @click="toCoupon(i)"
         :key="i"
       >
@@ -33,31 +32,62 @@
 export default {
   data() {
     return {
-      current: 0,
-      tabs: [],
       couponList: [],
-      coupons: [],
-      openid: "",
     };
   },
   onLoad(e) {
     this.getHome();
-    //#ifdef H5
-    let tabId = this.$route.query.tabId ? parseInt(this.$route.query.tabId) : 0;
-    //#endif
-    //#ifdef MP-WEIXIN
-    let tabId = e.tabId ? parseInt(e.tabId) : 0;
-    // this.onSubscribe();
-    //#endif
-    for (let i in this.tabs) {
-      if (tabId == this.tabs[i].tabId) {
-        this.current = parseInt(i);
+  },
+  methods: {
+    async subscribe() {
+      // 1、发起申请订阅权限界面
+      const templateId = "PYpj8u92m_x9cYu7WfFfJfdaCgrnb15CaKczOuS6icI";
+      const [error, res] = await uni.requestSubscribeMessage({
+        tmplIds: [templateId],
+      });
+      if (
+        error ||
+        res.errMsg != "requestSubscribeMessage:ok" ||
+        res[templateId] != "accept"
+      )
+        return;
+
+      // 2、调用云函数记录用户openid
+      uni.showLoading({ title: "订阅中..." });
+      const [loginError, loginRes] = await uni.login();
+      const data = await uniCloud.callFunction({
+        name: "subscribe",
+        data: { templateId, code: loginRes.code },
+      });
+      uni.hideLoading();
+      uni.showToast({ title: "订阅成功", icon: "success", duration: 2000 });
+    },
+    toCoupon(i) {
+      console.log(this.couponList[i]);
+      //h5
+      //#ifdef H5
+      window.location.href = this.couponList[i].url;
+      //#endif
+      //微信小程序
+      //#ifdef MP-WEIXIN
+      if (this.couponList[i].minapp) {
+        wx.navigateToMiniProgram({
+          appId: this.couponList[i].minapp.appid,
+          path: this.couponList[i].minapp.path,
+          success(res) {
+            // 打开成功
+          },
+        });
       }
-    }
-    this.changeTab(this.current);
+      //#endif
+    },
+    async getHome() {
+      const data = await uniCloud.callFunction({ name: "coupons" });
+      this.couponList = data.result;
+    },
   },
   onShareAppMessage(res) {
-    var messages = [
+    const messages = [
       {
         title: "美团饿了么大额红包，每日可领！",
         path: "/pages/index/index",
@@ -96,93 +126,6 @@ export default {
       },
     ];
     return messages[Math.floor(Math.random() * messages.length)];
-  },
-  methods: {
-    async subscribe() {
-      // 1、发起申请订阅权限界面
-      const templateId = "PYpj8u92m_x9cYu7WfFfJfdaCgrnb15CaKczOuS6icI";
-      const [error, res] = await uni.requestSubscribeMessage({
-        tmplIds: [templateId],
-      });
-      if (error || res.errMsg != "requestSubscribeMessage:ok" || res[templateId] != 'accept') return;
-
-      // 2、调用云函数记录用户openid
-      uni.showLoading({ title: "订阅中..." });
-      const [loginError, loginRes] = await uni.login();
-      const data = await uniCloud.callFunction({
-        name: "subscribe",
-        data: { templateId, code: loginRes.code },
-	  });
-      uni.hideLoading();
-      uni.showToast({ title: "订阅成功", icon: "success", duration: 2000 });
-    },
-    changeTab(index) {
-      console.log("当前选中的项：" + index);
-      this.couponList = [];
-      uni.showLoading({
-        title: "获取优惠中",
-      });
-      if (index == 0) {
-        this.couponList = this.coupons;
-      } else {
-        for (let i in this.coupons) {
-          if (this.coupons[i].tabId == this.tabs[index].tabId) {
-            this.couponList.push(this.coupons[i]);
-          }
-        }
-      }
-      //#ifdef H5
-      this.$nextTick(() => {
-        this.$refs.coupon.scrollTop = 0;
-      });
-      //#endif
-      setTimeout(() => {
-        uni.hideLoading();
-      }, 500);
-    },
-    toCoupon(i) {
-      console.log(this.couponList[i]);
-      //h5
-      //#ifdef H5
-      window.location.href = this.couponList[i].url;
-      //#endif
-      //微信小程序
-      //#ifdef MP-WEIXIN
-      if (this.couponList[i].minapp) {
-        wx.navigateToMiniProgram({
-          appId: this.couponList[i].minapp.appid,
-          path: this.couponList[i].minapp.path,
-          success(res) {
-            // 打开成功
-          },
-        });
-      }
-      //#endif
-    },
-    getHome() {
-      uni.request({
-        url: getApp().globalData.api.home,
-        success: (res) => {
-          const cou = res.data.data.coupons;
-          // cou.push({
-          // 	"name": "抖音视频去水印",
-          // 	"icon": "/static/coupon/douyin.png",
-          // 	"bannerPic": "/static/coupon/douyin_banner.jpg",
-          // 	"url": "",
-          // 	"type": 3,
-          // 	"tabId": 0,
-          // 	"minapp": {
-          // 		"appid": "wxfb0e84a3b0778a62",
-          // 		"path": "/pages/index/index"
-          // 	}
-          // })
-
-          this.tabs = res.data.data.tabs;
-          this.coupons = cou;
-          this.changeTab(0);
-        },
-      });
-    },
   },
 };
 </script>
