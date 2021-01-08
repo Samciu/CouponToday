@@ -1,6 +1,6 @@
 <template>
   <view class="container">
-    <image class="subscribe" @click="subscribe()" src="../../static/banner.jpg">
+    <image v-if="templateId" class="subscribe" @click="subscribe()" src="../../static/banner.jpg">
     <view class="coupon" ref="coupon">
       <view
         class="item"
@@ -31,7 +31,8 @@
 export default {
   data() {
     return {
-      couponList: [],
+	  couponList: [],
+	  templateId: getApp().globalData.templateId
     };
   },
   onLoad(e) {
@@ -40,7 +41,7 @@ export default {
   methods: {
     async subscribe() {
       // 1、发起申请订阅权限界面
-      const templateId = "PYpj8u92m_x9cYu7WfFfJfdaCgrnb15CaKczOuS6icI";
+      const templateId = this.templateId;
       const [error, res] = await uni.requestSubscribeMessage({
         tmplIds: [templateId],
       });
