@@ -18,9 +18,7 @@ exports.main = async (event, context) => {
 			// 正在处理的元素在数组中的索引，是元素在原来数组中的第一个索引，就把它塞进新数组
 			return index == arr.findIndex(element => element.touser == item.touser)
 		})
-
-		console.log(JSON.stringify(messageList))
-
+		
 		// 循环消息列表
 		const sendPromises = messageList.map(async message => {
 			try {
