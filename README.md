@@ -5,7 +5,7 @@
 
 ### DEMO
 
-<img src="https://mp.weixin.qq.com/wxopen/qrcode?action=show&type=2&fakeid=3844307241&token=1679384940" width="250" />
+<img src="./examples/code.jpg" width="250" />
 
 
 ### 使用方法
