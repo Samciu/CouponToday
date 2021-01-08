@@ -1,7 +1,6 @@
 <template>
   <view class="container">
-    <view class="subscribe" @click="subscribe()"> 订阅banner </view>
-
+    <image class="subscribe" @click="subscribe()" src="../../static/banner.jpg">
     <view class="coupon" ref="coupon">
       <view
         class="item"
@@ -139,6 +138,11 @@ page {
   font-size: 14px;
   line-height: 24px;
   position: relative;
+
+  .subscribe {
+    width: 100%;
+    height: 240rpx;
+  }
 
   .tab {
     position: fixed;
