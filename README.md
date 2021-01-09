@@ -42,7 +42,7 @@ minapp: {
 
 ### 感谢
 
-感谢 https://github.com/hedongshu/miniapp-coupons 提供的代码
+感谢 https://github.com/zwpro/coupons 提供的代码
 
 本仓库代码在此基础上做了优化
 - 优化了云函数的调用方法，不需要额外云函数URL化
