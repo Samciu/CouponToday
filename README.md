@@ -12,6 +12,8 @@
 
 源码为 uni-app + uniCloud 项目，需下载hbuilder导入项目打包，可编译成微信小程序(跳转地址为小程序路径)
 
+master 分支的优惠券列表数据在云函数上，[no-api](https://github.com/Samciu/CouponToday/tree/no-api) 分支的优惠券列表数据写在前端本地
+
 
 ### 常见问题
 
@@ -37,7 +39,7 @@ minapp: {
 
 
 
-如有疑问，请提issue
+如有疑问，可以提issue，或者加我微信： samciu
 
 
 ### 感谢
