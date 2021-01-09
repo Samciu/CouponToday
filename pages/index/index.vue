@@ -31,8 +31,8 @@
 export default {
   data() {
     return {
-	  couponList: [],
-	  templateId: getApp().globalData.templateId
+      couponList: [],
+      templateId: getApp().globalData.templateId,
     };
   },
   onLoad(e) {
@@ -82,8 +82,10 @@ export default {
       //#endif
     },
     async getHome() {
+      uni.showLoading({ title: "优惠加载中..." });
       const data = await uniCloud.callFunction({ name: "coupons" });
-      this.couponList = data.result;
+	  this.couponList = data.result;
+	  uni.hideLoading();
     },
   },
   onShareAppMessage(res) {
