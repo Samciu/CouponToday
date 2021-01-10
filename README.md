@@ -14,7 +14,7 @@
 
 master 分支的优惠券列表数据在云函数上，[no-api](https://github.com/Samciu/CouponToday/tree/no-api) 分支的优惠券列表数据写在前端本地
 
-
+[《0成本睡后收入！从0教你搭建一个会自己赚钱的外卖CPS小程序》](https://mp.weixin.qq.com/s?__biz=MjM5MjUyNjA2Mg==&mid=2454816396&idx=1&sn=c8a649dec81b1172b6d1c721c37d6fb2&chksm=b101dd0d8676541b6a427f8823ffbbe2eade0f24cb4340c2314fd26e18ced8e1fe8ef33091f0&token=1963651323&lang=zh_CN#rd)
 ### 常见问题
 
 1、 如何获取美团饿了吗的推广链接
