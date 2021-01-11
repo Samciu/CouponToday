@@ -2,7 +2,7 @@
 
 const coupons = [
 	{
-		"name": "饿了么红包",
+		"name": "饿了么红包天天领",
 		"icon": "/static/coupon/ele.png",
 		"bannerPic": "/static/coupon/ele_banner.png",
 		"url": "https://s.click.ele.me/qx45rsu",
