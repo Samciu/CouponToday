@@ -1,7 +1,12 @@
 {
-	"pages": [{
-		"path": "pages/index/index"
-	}],
+	"pages": [
+		{
+			"path": "pages/index/index"
+		},
+		{
+			"path": "pages/webview/webview"
+		}
+	],
 	"globalStyle": {
 		"navigationBarTextStyle": "white",
 		"navigationBarTitleText": "天天外卖神券",

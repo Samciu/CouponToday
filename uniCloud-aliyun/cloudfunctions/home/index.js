@@ -60,11 +60,17 @@ const coupons = [
 	},
 ]
 
-
 exports.main = async (event, context) => {
 	//event为客户端上传的参数
-	console.log('event : ', event)
-
+	
 	//返回数据给客户端
-	return coupons
+	return {
+		coupons,
+		banners: [
+			{
+				img: "https://vkceyugu.cdn.bspapp.com/VKCEYUGU-aliyun-k3gpzmwscp2i85a06d/1b9d25e0-54f0-11eb-bdc1-8bd33eb6adaa.png",
+				url: "https://mp.weixin.qq.com/s/5AhplF9auBcnFpb_4T3xaA",
+			}
+		]
+	}
 };
