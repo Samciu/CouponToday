@@ -30,32 +30,32 @@ const coupons = [
 		},
 	},
 	{
-		name: "美团外卖红包",
+		name: "美团外卖红包天天领 ①",
 		desc: "最高优惠56元，天天可领",
 		icon: "/static/meituan.jpg",
 		bannerPic: "/static/coupon/meituan_banner.png",
 		url:
-			"https://act.meituan.com/clover/page/adunioncps/share_coupon_new?utmSource=56020&utmMedium=3D52DEF4438AE63F0FBF09E13E5B1B8E&promotionId=20172&activity=OwMkGzn6oK",
+			"https://act12.meituan.com/clover/page/adunioncps/share_coupon_new?utmSource=56020&utmMedium=3D52DEF4438AE63F0FBF09E13E5B1B8E&promotionId=20172&activity=OwMkGzn6oK",
 		type: 1,
 		tabId: 2,
 		minapp: {
 			appid: "wxde8ac0a21135c07d",
 			path:
-				"/index/pages/h5/h5?lch=mhqIykekFEV63u81zLSTaQViQ&noshare=1&f_userId=0&f_openId=0&f_token=1&weburl=https%3A%2F%2Fact.meituan.com%2Fclover%2Fpage%2Fadunioncps%2Fshare_coupon_new%3FutmSource%3D56020%26utmMedium%3D3D52DEF4438AE63F0FBF09E13E5B1B8E%26promotionId%3D20172%26activity%3DOwMkGzn6oK",
+				"/index/pages/h5/h5?lch=mhqIykekFEV63u81zLSTaQViQ&noshare=1&f_userId=0&f_openId=0&f_token=1&weburl=https%3A%2F%2Fact12.meituan.com%2Fclover%2Fpage%2Fadunioncps%2Fshare_coupon_new%3FutmSource%3D56020%26utmMedium%3D3D52DEF4438AE63F0FBF09E13E5B1B8E%26promotionId%3D20172%26activity%3DOwMkGzn6oK",
 		},
 	},
 	{
-		name: "抖音视频去水印",
-		desc: "免费使用，无广告",
-		icon: "/static/coupon/douyin.png",
-		button: "使用",
-		bannerPic: "/static/coupon/douyin_banner.jpg",
+		name: "美团外卖新人红包 ②",
+		desc: "幸运红包，可叠加领取",
+		icon: "/static/meituan.jpg",
+		button: "领取",
+		bannerPic: "/static/coupon/meituan_banner.png",
 		url: "",
 		type: 3,
 		tabId: 0,
 		minapp: {
-			appid: "wxfb0e84a3b0778a62",
-			path: "/pages/index/index",
+			appid: "wx2c348cf579062e56",
+			path: "outer_packages/r2xinvite/coupon/coupon?mt_share_id=kjvrruv4udv4&inviteCode=NnOIp-QOs8SiYF1dcSlL5r8phPrCf6qkH7evMyjIoup2NXxNCLYcBbd3bqpv2X2I86OXO-OOfQTuJfvg2wezgVcFqzqYzK9GVmwJhZeY-LHlbinTsmA6k1w4r_ZEu1KHWtkI8fCaKQxoo0VusrklP0ghFQP2xUPyVB27QkFS6ZA",
 		},
 	},
 ]
@@ -67,10 +67,10 @@ exports.main = async (event, context) => {
 	return {
 		coupons,
 		banners: [
-			{
-				img: "https://vkceyugu.cdn.bspapp.com/VKCEYUGU-aliyun-k3gpzmwscp2i85a06d/1b9d25e0-54f0-11eb-bdc1-8bd33eb6adaa.png",
-				url: "https://mp.weixin.qq.com/s/5AhplF9auBcnFpb_4T3xaA",
-			}
+			// {
+			// 	img: "https://vkceyugu.cdn.bspapp.com/VKCEYUGU-aliyun-k3gpzmwscp2i85a06d/1b9d25e0-54f0-11eb-bdc1-8bd33eb6adaa.png",
+			// 	url: "https://mp.weixin.qq.com/s/5AhplF9auBcnFpb_4T3xaA",
+			// }
 		]
 	}
 };
