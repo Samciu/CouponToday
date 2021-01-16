@@ -58,6 +58,20 @@ const coupons = [
 			path: "outer_packages/r2xinvite/coupon/coupon?mt_share_id=kjvrruv4udv4&inviteCode=NnOIp-QOs8SiYF1dcSlL5r8phPrCf6qkH7evMyjIoup2NXxNCLYcBbd3bqpv2X2I86OXO-OOfQTuJfvg2wezgVcFqzqYzK9GVmwJhZeY-LHlbinTsmA6k1w4r_ZEu1KHWtkI8fCaKQxoo0VusrklP0ghFQP2xUPyVB27QkFS6ZA",
 		},
 	},
+	// {
+	// 	name: "携程酒店",
+	// 	desc: "抽奖免费住五星酒店",
+	// 	icon: "https://vkceyugu.cdn.bspapp.com/VKCEYUGU-aliyun-k3gpzmwscp2i85a06d/b71e5e00-5746-11eb-b997-9918a5dda011.jpg",
+	// 	button: "抽奖",
+	// 	bannerPic: "/static/coupon/meituan_banner.png",
+	// 	url: "",
+	// 	type: 3,
+	// 	tabId: 0,
+	// 	minapp: {
+	// 		appid: "wx0e6ed4f51db9d078",
+	// 		path: "pages/hotel/inquire/index?jumpurl=%2Fpages%2Fhotel%2Fcomponents%2Fwebview%2Fwebview%3Fdata%3D%7B%22url%22%3A%22https%253A%252F%252Fm.ctrip.com%252Fwebapp%252Fhotelevents%252Fm%252Fliebianchoujianglaohuji202010%253FparentID%253D18cdf35eb759917bd72a161adf645c9e%2526wemp%253D1%22%7D&mktshare=eyJhbGxpYW5yojIklWZjNjM1MjgsInNpZCI6MTEwNTA4NCwib3VpZCI6Im1pbmkxMDA1Iiwic291cmNlaWQiOjU1NTU1NTQ2LCJmcm9tYWxsaWFuY2VpZCI6MCwiZnJvbXNpZCI6MCwiZnJvbW91aWQiOiIiLCJmcm9tc291cmNlaWQiOjAsImZyb21vcGVuaWQiOiJiNjFiM2QxOC04NjgwLTQ3Y2YtYmRlOC01YzIwMjRmMzRmN2UifQ()()LU&allianceid=263528&sid=1105084&ouid=mini1005&sourceid=55555546",
+	// 	},
+	// }
 ]
 
 exports.main = async (event, context) => {
