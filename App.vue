@@ -11,7 +11,7 @@ export default {
 	},
 	globalData: {
 		// 更换订阅消息模板id
-		// templateId: "PYpj8u92m_x9cYu7WfFfJfdaCgrnb15CaKczOuS6icI"
+		templateId: "PYpj8u92m_x9cYu7WfFfJfdaCgrnb15CaKczOuS6icI"
 	}
 
 };
