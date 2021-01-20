@@ -54,7 +54,4 @@ minapp: {
 
 ### 交流群
 
-如有疑问，可以提issue，也欢迎加入技术变现交流群
-
-
-<img src="./examples/weixin_qrcode.jpg" width="250" />
+如有疑问，可以提issue，或者加我微信： dasamciu
