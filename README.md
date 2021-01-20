@@ -50,9 +50,6 @@ minapp: {
 - 优化了云函数的调用方法，不需要额外云函数URL化
 - 重写优化了订阅消息的代码逻辑，减少额外openid请求，提高网络性能
 
-### 交流群
+### 交流
 
-如有疑问，可以提issue，也欢迎加入技术变现交流群
-
-
-<img src="./examples/weixin_qrcode.jpg" width="250" />
+如有疑问，可以提issue，或者加我微信： dasamciu
