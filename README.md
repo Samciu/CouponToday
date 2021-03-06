@@ -19,19 +19,21 @@ master 分支是新版UI前端代码，依赖管理后台数据，需要先部�
 ### 使用方法
 
 #### 一、部署管理后台
-1. 将[管理后台项目](https://ext.dcloud.net.cn/plugin?id=4324)导入HBuilderX
-2. 右键点击 uniCloud 创建服务空间
-3. 右键点击 db_init.json 初始化数据库
-4. 右键上传 cloudfunctions/common 下的所有公用模块
-5. 右键上传 cloudfunctions 下的所有云函数
-6. 在HBuilderX顶部菜单点击 发行 -> 上传网站到服务器
-7. 在弹出的对话框中选中将编译后的资源部署到云服务空间。
-8. 点击上传，等待项目编译部署上传即可
+1. 打开[管理后台项目](https://ext.dcloud.net.cn/plugin?id=4324)，将插件导入HBuilderX
+2. 在 manifest.json 中重新获取appid
+3. 右键点击 uniCloud 关联云服务空间
+4. 右键点击 db_init.json 初始化数据库
+5. 右键上传 cloudfunctions/common 下的所有公用模块
+6. 右键上传 cloudfunctions 下的所有云函数
+7. 在HBuilderX顶部菜单点击 发行 -> 上传网站到服务器
+8. 在弹出的对话框中选中将编译后的资源部署到云服务空间。
+9. 点击上传，等待项目编译部署上传即可
+10. 查看uniCloud后台前端网页托管 -> 参数配置 中的 默认域名，使用该域名地址即可访问管理后台。
 
-- 注意: 需要在uniCloud后台操作，绑定安全域名（在部署云函数的服务空间配置部署h5的域名作为安全域名），否则会因为跨域问题而无法访问。
+- 注意: 需要绑定安全域名，在uniCloud后台操作，将 前端网页托管 -> 参数配置 中的 默认域名 添加到 跨域配置
 
 #### 二、部署小程序前端
-1. 右键点击 uniCloud 绑定管理后台同一个服务空间
+1. 根目录右键创建uniCloud云开发环境，右键uniCloud目录关联到与管理后台同一个服务空间
 2. 在HBuilderX顶部菜单点击发行 -> 发行到微信小程序
 3. 上传版本并审核即可
 
