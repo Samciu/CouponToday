@@ -12,10 +12,9 @@ export default {
     };
   },
   onLoad: function (option) {
-    const { key } = option;
-    if (key) {
-      const banners = JSON.parse(key);
-      this.url = banners[0].url;
+    const { url } = option;
+    if (url) {
+      this.url = decodeURIComponent(url);
     }
   },
 };

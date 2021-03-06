@@ -5,12 +5,36 @@
 		},
 		{
 			"path": "pages/webview/webview"
+		},
+		{
+			"path": "pages/eatwhat/eatwhat"
 		}
 	],
+	"tabBar": {
+		"borderStyle": "black",
+		"backgroundColor": "white",
+		"color": "#333333",
+		"fontSize": "24upx",
+		"selectedColor": "#f4c242",
+		"list": [
+			{
+				"pagePath": "pages/index/index",
+				"text": "领券",
+				"iconPath": "static/home.png",
+				"selectedIconPath": "static/home-active.png"
+			},
+			{
+				"pagePath": "pages/eatwhat/eatwhat",
+				"text": "吃什么",
+				"iconPath": "static/whatwedo.png",
+				"selectedIconPath": "static/whatwedo-active.png"
+			}
+		]
+	},
 	"globalStyle": {
 		"navigationBarTextStyle": "white",
-		"navigationBarTitleText": "天天外卖神券",
-		"navigationBarBackgroundColor": "#ffa800",
+		"navigationBarTitleText": "今日神券",
+		"navigationBarBackgroundColor": "#ea3855",
 		"backgroundColor": "#FFFFFF",
 		"titleView": false,
 		"h5": {
