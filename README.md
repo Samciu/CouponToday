@@ -14,7 +14,7 @@
 
 master 分支是新版UI前端代码，依赖管理后台数据，需要先部署[管理后台](https://ext.dcloud.net.cn/plugin?id=4324)，部署完成后，可以永久免费使用。参考文章：
 
-- [《外卖CPS小程序2.0！带管理后台，可过审核》](https://mp.weixin.qq.com/s?__biz=MjM5MjUyNjA2Mg==&mid=2454816396&idx=1&sn=c8a649dec81b1172b6d1c721c37d6fb2&chksm=b101dd0d8676541b6a427f8823ffbbe2eade0f24cb4340c2314fd26e18ced8e1fe8ef33091f0&token=1963651323&lang=zh_CN#rd)
+- [《外卖CPS小程序2.0！带管理后台，可过审核》](https://mp.weixin.qq.com/s/YvTKaEcrNguYsDo8rea7LQ)
 
 ### 使用方法
 
