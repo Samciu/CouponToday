@@ -54,4 +54,4 @@ minapp: {
 
 ### 交流群
 
-如有疑问，可以提issue，或者加我微信： dasamciu
+如有疑问，可以提issue，或者加我微信： samciu
