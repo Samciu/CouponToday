@@ -15,24 +15,33 @@
           indicatorColor="#ccc"
           :indicatorDots="true"
         >
-          <swiper-item class="swiper-item" v-for="(banner, i) in banners" :key="i" @click="handleClickBanner(banner)">
-            <image
-              class="img"
-              mode="widthFix"
-              :src="banner.pic"
-            ></image>
+          <swiper-item
+            class="swiper-item"
+            v-for="(banner, i) in banners"
+            :key="i"
+            @click="handleClickBanner(banner)"
+          >
+            <image class="img" mode="widthFix" :src="banner.pic"></image>
           </swiper-item>
         </swiper>
       </view>
     </view>
     <view class="icon-btns">
-      <button @click="subscribe" class="item">
+      <button v-if="templateId" @click="subscribe" class="item">
         <image
           class="icon"
           mode="widthFix"
           src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-aliyun-k3gpzmwscp2i85a06d/ccc7ae90-57ce-11eb-b997-9918a5dda011.png"
         ></image>
         <text class="label">提醒我点餐</text>
+      </button>
+      <button v-else @click="openAddTip" class="item">
+        <image
+          class="icon"
+          mode="widthFix"
+          src="https://mpstatic.qingting123.com/img/icon/menu.png"
+        ></image>
+        <text class="label">添加小程序</text>
       </button>
       <button
         class="item"
@@ -76,11 +85,7 @@
         :key="i"
       >
         <view class="left">
-          <image
-            class="label ele"
-            mode="widthFix"
-            :src="item.labelPic"
-          ></image>
+          <image class="label ele" mode="widthFix" :src="item.labelPic"></image>
           <image class="mark ele" mode="heightFix" :src="item.markPic"></image>
           <view class="content">
             <view class="title">{{ item.name }}</view>
@@ -96,6 +101,34 @@
         </view>
       </view>
     </view>
+
+    <view v-if="showAddTip" class="add-mini-tip" :style="'top:' + navbarHeight + 'px'">
+      <view class="arrow" :style="'margin-right:' + arrowRight + 'px'"></view>
+      <view class="body" :style="'margin-right:' + bodyRight + 'px'">
+        <view @click="closeAddTip" class="close-wrapper">
+          <image
+            class="close"
+            mode="widthFix"
+            src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-5421f5a2-25ab-411d-b114-90177d80d0eb/48ee547c-ef02-4034-9bcc-7430f2046911.png"
+          ></image>
+        </view>
+        <view class="tips">
+          <view>
+            <text>添加到我的小程序</text>
+          </view>
+          <view>
+            <text>微信下拉快速打开</text>
+          </view>
+        </view>
+        <view class="hand-wrapper">
+          <image
+            class="hand"
+            mode="widthFix"
+            src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-5421f5a2-25ab-411d-b114-90177d80d0eb/a766fcd6-243c-48a2-b974-cc49faa59526.png"
+          ></image>
+        </view>
+      </view>
+    </view>
   </view>
 </template>
 
@@ -105,11 +138,16 @@ export default {
     return {
       couponList: [],
       banners: [],
-      templateId: getApp().globalData.templateId,
+      templateId: "",
+      arrowRight: 0,
+      bodyRight: 0,
+      navbarHeight: 0,
+	  showAddTip: false
     };
   },
   onLoad(e) {
     this.getHome();
+    this.initTips();
   },
   methods: {
     async subscribe() {
@@ -147,16 +185,17 @@ export default {
       const data = await uniCloud.callFunction({ name: "home" });
       this.couponList = data.result.coupons;
       this.banners = data.result.banners;
-	  if (data.result.close) {
-		  uni.switchTab({
-		      url: '/pages/eatwhat/eatwhat'
-		  });
-		  uni.hideTabBar()
-	  }
+	  this.templateId = data.result.templateId;
+      if (data.result.close) {
+        uni.switchTab({
+          url: "/pages/eatwhat/eatwhat",
+        });
+        uni.hideTabBar();
+      }
       uni.hideLoading();
     },
     handleClickBanner(banner) {
-      console.log(banner)
+      console.log(banner);
       const { type, appId, path, url } = banner;
       if (type == "miniapp") {
         uni.navigateToMiniProgram({
@@ -169,6 +208,24 @@ export default {
         });
       }
     },
+    initTips() {
+      const client = uni.getMenuButtonBoundingClientRect();
+      const { screenWidth } = uni.getSystemInfoSync();
+      const arrowRight =
+        screenWidth - client.right + (3 * client.width) / 4 - 5;
+      const bodyRight = screenWidth - client.right + (1 * client.width) / 5;
+      const navbarHeight = client.bottom;
+
+      this.arrowRight = arrowRight;
+      this.bodyRight = bodyRight;
+      // this.navbarHeight = navbarHeight;
+    },
+    openAddTip() {
+      this.showAddTip = true
+    },
+    closeAddTip() {
+      this.showAddTip = false
+    }
   },
   onShareAppMessage(res) {
     return {
@@ -478,5 +535,81 @@ export default {
 .take-out .list .item .right .btn.yellow {
   background-color: #fcd530;
   color: #666;
+}
+
+.add-mini-tip {
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 5100;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  -ms-flex-align: end;
+  align-items: flex-end;
+  flex-direction: column;
+  width: 600rpx;
+}
+
+.add-mini-tip .arrow {
+  width: 0;
+  height: 0;
+  border-width: 10rpx;
+  border-style: solid;
+  border-color: transparent transparent rgba(0, 0, 0, 0.65);
+}
+
+.add-mini-tip .body,
+.add-mini-tip .body .close-wrapper {
+  height: 88rpx;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.add-mini-tip .body {
+  background-color: rgba(0, 0, 0, 0.65);
+  border-radius: 12rpx;
+  padding: 0 6rpx;
+}
+
+.add-mini-tip .body .close-wrapper {
+  width: 60rpx;
+}
+
+.add-mini-tip .body .close-wrapper .close {
+  width: 24rpx;
+  height: 24rpx;
+}
+
+.add-mini-tip .body .tips {
+  flex: 1;
+  color: #fff;
+  font-size: 24rpx;
+  font-weight: 700;
+  margin: 0 16rpx 0 6rpx;
+  letter-spacing: 1rpx;
+}
+
+.add-mini-tip .body .hand-wrapper {
+  width: 60rpx;
+  height: 88rpx;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: end;
+  align-items: flex-end;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.add-mini-tip .body .hand-wrapper .hand {
+  height: 50rpx;
+  width: 76rpx;
+  border-radius: 8rpx;
+  margin-right: 10rpx;
 }
 </style>
