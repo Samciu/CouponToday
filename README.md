@@ -19,7 +19,7 @@ master 分支是新版UI前端代码，依赖管理后台数据，需要先部�
 ### 使用方法
 
 #### 一、部署管理后台
-1. 打开[管理后台项目](https://ext.dcloud.net.cn/plugin?id=4324)，将插件导入HBuilderX
+1. 打开[管理后台项目](https://ext.dcloud.net.cn/plugin?id=4324)，将插件导入HBuilderX（强烈建议使用优秀且免费的阿里云）
 2. 右键点击 uniCloud 关联云服务空间
 3. 右键点击 db_init.json 初始化数据库
 4. 右键上传 cloudfunctions 下的所有云函数
