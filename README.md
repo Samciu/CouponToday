@@ -12,7 +12,7 @@
 
 源码为 uni-app + uniCloud 项目，需下载hbuilder导入项目打包，可编译成微信小程序(跳转地址为小程序路径)
 
-master 分支是新版UI前端代码，依赖管理后台数据，需要先部署[管理后台](https://ext.dcloud.net.cn/plugin?id=4324)，部署完成后，可以永久免费使用。参考文章：
+master 分支是新版UI前端代码，依赖管理后台数据，需要先部署[管理后台](https://ext.dcloud.net.cn/plugin?id=4324)，部署到 uniCloud 后，可以永久免费使用。参考文章：
 
 - [《外卖CPS小程序2.0！带管理后台，可过审核》](https://mp.weixin.qq.com/s/YvTKaEcrNguYsDo8rea7LQ)
 
@@ -32,7 +32,7 @@ master 分支是新版UI前端代码，依赖管理后台数据，需要先部�
 - 注意: uniCloud 选择上传所有云函数和上传选择所有schema的时候有可能失败，根据提示在cloudfunctions目录或database目录重新上传单个云函数模块和schema即可
 
 #### 二、部署小程序前端
-1. 下载GitHub这个前端项目，导入到 HBuilderX
+1. 下载或者 clone 本前端项目，导入到 HBuilderX
 2. 根目录右键创建uniCloud云开发环境，右键uniCloud目录关联到与管理后台同一个服务空间
 3. 在HBuilderX顶部菜单点击发行 -> 发行到微信小程序（主要鼠标先选中这个前端项目，不要选中后台项目哦）
 4. 上传版本并审核即可
