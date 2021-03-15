@@ -41,7 +41,7 @@ master 分支是新版UI前端代码，依赖管理后台数据，需要先部�
 
 #### 三、高级教程（订阅消息配置）
 1. 修改 `cloudfunctions/common/utils/index.js` 所有配置信息，修改 `cloudfunctions/common/uni-id/config.json` 里 weixin 属性的 appid 和appsecret
-2. 上传部署所有修改的云函数
+2. 右键上传部署所有云函数及公共模块
 
 - 注意：需要更新插件到1.0.8以上版本
 - 注意：不配置订阅消息功能不影响正常使用，前台将默认显示为 `添加小程序`
