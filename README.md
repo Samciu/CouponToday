@@ -38,6 +38,7 @@ master 分支是新版UI前端代码，依赖管理后台数据，需要先部�
 4. 上传版本并审核即可
 
 - 注意：手机预览、调试、发行小程序需在小程序后台配置域名白名单，在小程序开发管理中配置request合法域名：https://api.bspapp.com、https://apis.map.qq.com
+- 注意：manifest.json 中微信小程序权限配置 `位置接口` 需要勾选上
 
 #### 三、高级教程（订阅消息配置）
 1. 修改 `cloudfunctions/common/utils/index.js` 所有配置信息，修改 `cloudfunctions/common/uni-id/config.json` 里 weixin 属性的 appid 和appsecret
