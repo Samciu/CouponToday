@@ -21,9 +21,6 @@
 			    <button id="shareApp" open-type="share">
 					<view class="inner">分享吃什么</view>
 				</button>
-				<button id="luckyMoney" @tap="getLuckyMoney">
-					<view class="inner">去领红包</view>
-				</button>
 			</view>
 			<!-- #endif -->
             <text @tap="showRestaurant" id="showRestaurant">查看餐厅详情</text>
