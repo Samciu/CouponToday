@@ -3,11 +3,6 @@
 
 美团饿了吗CPS小程序项目，别人领红包下单，你拿推广佣金
 
-### DEMO
-
-<img src="./examples/code.jpg" width="250" />
-
-
 ### 介绍
 
 源码为 uni-app + uniCloud 项目，需下载hbuilder导入项目打包，可编译成微信小程序(跳转地址为小程序路径)
